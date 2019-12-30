@@ -7,23 +7,6 @@ const config = {
   database:'gabiss_db'
 }
 
-// const pool = new sql.ConnectionPool(config);
-// const poolConnect = pool.connect();
-// console.log(poolConnect);
-// pool.on('error',(err)=>{
-//   console.log(err);
-// })
-
-// poolConnect.then(pool => {
-//   const request = pool.request();
-//   request.query('select * from employee').then(result => {
-//     console.log(result);
-//     pool.close();
-//   }).catch(err => {
-
-//   })
-// })
-
 function getConnectionPool(){
   const pool = new sql.ConnectionPool(config);
   const poolConnect = pool.connect();
