@@ -1,15 +1,24 @@
 部门：
-  部门Name
-  部门Id
-  部门上午上班时间
-  部门下午上班时间
+  部门 Name
+  部门 Id
+  部门上午上班时间 Time
+  部门下午上班时间 Time
 
 员工:
-  员工Name
-  员工Gender <男,女>
-  员工Id
-  员工所属部门Id
+  员工 Name
+  员工 Gender <男,女>
+  员工 Id
+  员工所属部门 Id
 
 缺勤/旷工:
-  员工Id
-  缺勤/旷工日期Date
+  Id
+  员工 Id
+  缺勤/旷工日期 Date
+
+请假:
+  Id
+  员工 Id
+  部门 Id
+  请假原因 Reason
+  请假开始时间 Date
+  请假结束时间 Date
