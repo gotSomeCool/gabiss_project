@@ -1,0 +1,13 @@
+.mainBody {
+  width: 100%;
+  position: relative;
+}
+
+.empTable {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.main {
+  height: 50px;
+}
