@@ -5,7 +5,7 @@ import {AddNewOne} from './addNewEmployee';
 import {Tabs, Icon} from 'antd';
 const {TabPane} = Tabs;
 
-import '../style/empMange.css';
+import '../style/empManage.css';
 
 interface IState {
   // index: string

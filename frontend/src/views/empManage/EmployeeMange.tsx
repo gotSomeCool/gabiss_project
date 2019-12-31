@@ -2,7 +2,7 @@ import * as React from 'react';
 // import axios from 'axios';
 import {Table, Divider, Tag, Button} from 'antd';
 
-import '../style/empMange.css';
+import '../style/empManage.css';
 import Axios from 'axios';
 
 export interface ICount {

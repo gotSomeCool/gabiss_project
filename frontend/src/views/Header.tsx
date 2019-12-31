@@ -29,19 +29,21 @@ export class Header extends React.Component <IProps, IState>{
     return (
       <>
         <Menu selectedKeys={[this.state.chosenIndex]} mode="horizontal" onClick={this.handleClick} style={{textAlign:"center"}}>
-          <Menu.Item key = "mail">
-            <Icon type = "mail" />
+          <Menu.Item key = "filter">
+            <Icon type = "filter" />
             考勤统计
           </Menu.Item>
-          <Divider type="vertical" />
           <Menu.Item key = "cloud">
             <Icon type = "cloud" />
             请假申请
           </Menu.Item>
-          <Divider type="vertical" />
           <Menu.Item key = "fire">
             <Icon type = "fire" />
             员工管理
+          </Menu.Item>
+          <Menu.Item key = "solution">
+            <Icon type = "solution" />
+            部门管理
           </Menu.Item>
         </Menu>
       </>
