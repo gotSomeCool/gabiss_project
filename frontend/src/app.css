@@ -1,0 +1,14 @@
+@import '~antd/dist/antd.css';
+
+.mainBody {
+  /* margin-top: 8vh; */
+  margin-left: 15vw;
+}
+.content {
+  z-index: 1;
+  padding-top: 8rem;
+  height: 80%;
+}
+.mainBody {
+
+}

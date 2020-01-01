@@ -1,16 +1,10 @@
-.mainBody {
-  width: 100%;
-  position: relative;
-}
+
 
 .empTable {
-  width: 60%;
-  margin: 10px auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.main {
-  height: 50px;
-}
 .addNew{
   width:100%;
   padding: 0;

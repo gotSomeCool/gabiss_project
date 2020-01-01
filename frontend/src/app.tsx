@@ -1,16 +1,26 @@
 import * as React from 'react';
 
-import 'antd/dist/antd.css';
+import {Route} from 'react-router-dom';
 
-import {Header} from './views/Header';
+import './app.css';
+
+import SidePane from './views/sidePane';
 import EmpManage from './views/empManage/index';
+import DepManage from '../src/views/department/index';
+import MyHeader from './views/myHeader';
 export default class App extends React.Component {
   render() {
     return (
-      <>
-        <Header />
-        <EmpManage />
-      </>
+      <div>
+        <MyHeader />
+        <SidePane />
+        <div className="mainBody">  
+          <div className="Content">
+            <Route path='/employee' component={EmpManage} />
+            <Route path='/department' component={DepManage} />
+          </div>
+        </div>
+      </div>
     )
   }
 }

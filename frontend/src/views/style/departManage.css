@@ -1,0 +1,25 @@
+.flex-box {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+}
+.flex-item {
+  /* flex: 0; */
+  display: inline-block;
+  margin:0 20px;
+}
+.department-manage {
+  /* position: absolute; */
+  display: flex;
+  width: 100px;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.department-manage-button {
+  box-shadow: 5px 5px 10px grey;
+  margin: 0.8rem;
+}

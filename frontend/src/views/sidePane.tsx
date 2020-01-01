@@ -1,34 +1,54 @@
 import * as React from 'react';
 
-import {Menu, Icon,Divider} from 'antd';
+import {Menu, Icon} from 'antd';
 import { ClickParam } from 'antd/lib/menu';
 // const {SubMenu} = Menu;
+import {withRouter, RouteComponentProps} from 'react-router-dom';
 
-interface IProps {
+import './style/sidePane.css';
+
+interface IProps extends RouteComponentProps{
 
 }
 
 interface IState {
   chosenIndex: string;
 }
-export class Header extends React.Component <IProps, IState>{
+class Header extends React.Component <IProps, IState>{
   constructor(props: IProps){
     super(props);
     this.state = {
-      chosenIndex: 'fire' 
+      chosenIndex: '' 
     }
+    
   }
 
   handleClick= (param: ClickParam)=>{
     this.setState({
       chosenIndex: param.key 
     });
+    // this.props.history.push('/employee');
+    switch (param.key){
+      case 'fire' : {
+        this.props.history.push('/employee');
+        break;
+      }
+      case 'solution': {
+        this.props.history.push('/department');
+        break;
+      }
+    }
+    
   }
 
   render(){
     return (
       <>
-        <Menu selectedKeys={[this.state.chosenIndex]} mode="horizontal" onClick={this.handleClick} style={{textAlign:"center"}}>
+        <Menu 
+          selectedKeys={[this.state.chosenIndex]} 
+          mode="inline" 
+          onClick={this.handleClick} 
+          className="sidePane">
           <Menu.Item key = "filter">
             <Icon type = "filter" />
             考勤统计
@@ -50,3 +70,4 @@ export class Header extends React.Component <IProps, IState>{
     )
   }
 }
+export default withRouter(Header)

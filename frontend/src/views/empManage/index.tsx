@@ -19,26 +19,16 @@ export default class empManage extends React.Component <{}, IState> {
   }
   render(){
     return (
-      <div className="main">
-        <Tabs defaultActiveKey="1">
-          <TabPane
-            tab={
-              <span>
-                <Icon type="apple" />
-                员工
-              </span>
-            }
+      <div>
+        <Tabs type="card">
+          <TabPane 
+            tab="员工管理"
             key="1"
           >
             <Attendance />
           </TabPane>
-           <TabPane
-            tab={
-              <span>
-                <Icon type="android" />
-                添加新员工
-              </span>
-            }
+           <TabPane 
+            tab="添加新员工"                
             key="2"
           >
             <AddNewOne />

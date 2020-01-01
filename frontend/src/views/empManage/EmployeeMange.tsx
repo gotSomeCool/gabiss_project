@@ -58,9 +58,7 @@ export class Attendance extends React.Component <{}, IState>{
   }
   render() {
     return (
-      <div className="mainBody">
         <Table dataSource={this.state.data} columns={columns} rowKey={record=>record.Id} className="empTable" />
-      </div>
     )
   }
 }
