@@ -4,7 +4,7 @@ const config = {
   user: 'SA',
   password: '<A12345678@Passw0rd>', 
   server:'106.14.224.131',
-  database:'gabiss_db'
+  database:'ljw_db'
 }
 
 function getConnectionPool(){

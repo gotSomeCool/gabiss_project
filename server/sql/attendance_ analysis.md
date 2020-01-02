@@ -22,3 +22,14 @@
   请假原因 Reason
   请假开始时间 Date
   请假结束时间 Date
+  批准状态 boolean
+ 
+//表名
+employee<br>
+Id Gender Name DepartmentId<br>
+department<br>
+Id Name WorkingHoursAM WorkingHoursPM<br>
+attendance<br>
+Id EmployeeId NotAttendanceDate<br>
+leave<br>
+Id DepartmentId Reason StartDate EndDate State

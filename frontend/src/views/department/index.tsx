@@ -1,12 +1,12 @@
-import * as React from 'react';
-
-import Department,{IDepartmentProps} from './department';
-import {Button} from 'antd';
 import '../style/departManage.css';
 
+import { Button } from 'antd';
+import * as React from 'react';
+
+import Department, { IProps } from './department';
 
 interface IState {
-  departments:IDepartmentProps[]
+  departments:IProps[]
 }
 
 export default class departmentManage extends React.Component <{}, IState>  {

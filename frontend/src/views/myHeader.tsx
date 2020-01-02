@@ -8,7 +8,7 @@ export default class Header extends React.Component {
       <div className="myHeader">
         <div className="headerBody">
           <span className="title">
-            不会真的有人会做吧
+          GA没🐎，🌶4真滴🐂🍺
           </span>
           <div className="headerAvatar">
           {/* <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={64} /> */}

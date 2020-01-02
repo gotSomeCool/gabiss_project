@@ -3,7 +3,7 @@ const router = new Router();
 
 const {getAllDepartment, addNewDepartment} = require('../databaseConnection/department');
 
-router.get('/getAllDepartment', async (ctx, next) => {
+router.get('/getAll', async (ctx, next) => {
   await getAllDepartment().then(data => {
     ctx.body = JSON.stringify(data.recordset);
     next();

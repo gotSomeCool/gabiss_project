@@ -1,31 +1,75 @@
-import * as React from 'react';
 import '../style/empManage.css';
 
-import {Card, Button, Input, Select, Divider} from 'antd';
+import { Button, Card, Divider, Input, message, Select } from 'antd';
+import Axios from 'axios';
+import * as React from 'react';
+
+import { SERVER_IP } from '../../static/const';
+import { IDepartment } from '../department/department';
+
 const {Option} = Select; 
+
 interface IState {
-  Name: string,
-  Gender: string,
-  DepartmentId: number
+  newEmployee: {
+    Name: string,
+    Gender: string,
+    DepartmentId: Number
+  },
+  departments: IDepartment[]
 }
 export class AddNewOne extends React.Component <{}, IState> {
   constructor(props: {}){
     super(props);
     this.state = {
-      Name: '',
-      Gender: '',
-      DepartmentId: 0
+      newEmployee : {
+        Name: '',
+        Gender: '',
+        DepartmentId: 0},
+      departments: []
     }
   }
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
-      Name: event.target.value
+      newEmployee: Object.assign({},this.state.newEmployee,{Name: event.target.value})
+    });
+  }
+  componentDidMount() {
+    Axios.get(`${SERVER_IP}/department/getAll`).then(res => {
+      this.setState({
+        departments: res.data
+      });
+    });
+  }
+  addNewEmployee() {
+    const {
+      Gender,
+      Name,
+      DepartmentId
+    } = this.state.newEmployee;
+    Gender!== '' && Name !== '' && DepartmentId && Axios.get(`${SERVER_IP}/emp/addNew`,{params: {
+      gender: Gender,
+      name: Name,
+      departmentId: DepartmentId
+    }}).then(() => {
+      message.success('添加员工成功');
+      this.setState({
+        newEmployee:{
+          Gender: '',
+          Name: '',
+          DepartmentId: 0
+        }
+      });
     });
   }
   render() {
+    const departments = this.state.departments.map(item => {
+      return (
+        <Option value={item.Id}>{item.Name}</Option>
+      )
+    })
     return (
       <div className="addNew">
-          <Card title="添加新员工" style={{width:300}}>
+          <Card title="添加新员工" style={{width:'30vw'}}>
           <Input size="large" placeholder="员工姓名" onChange={this.handleChange}/>
           <Divider type="horizontal" />
           <Select
@@ -33,9 +77,7 @@ export class AddNewOne extends React.Component <{}, IState> {
             style={{width: 200}}
             placeholder="选择一个部门"
           >
-            <Option value="123">人事部</Option>
-            <Option value="124">研发部</Option>
-            <Option value="125">市场部部</Option>
+            {departments}
           </Select>
           <Divider type="horizontal" />
           <Select 

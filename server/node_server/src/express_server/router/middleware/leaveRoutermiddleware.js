@@ -3,7 +3,7 @@ const router = new Router();
 
 const {getAllLeaves,addNewLeave} = require('../databaseConnection/leave');
 
-router.get('/getAllLeave', async (ctx, next) => {
+router.get('/getAll', async (ctx, next) => {
   await getAllLeaves().then(data => {
     ctx.body = JSON.stringify(data.recordset);
     next();

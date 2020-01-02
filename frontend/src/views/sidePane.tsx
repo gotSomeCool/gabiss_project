@@ -29,13 +29,16 @@ class Header extends React.Component <IProps, IState>{
     });
     // this.props.history.push('/employee');
     switch (param.key){
-      case 'fire' : {
+      case 'fire': {
         this.props.history.push('/employee');
         break;
       }
       case 'solution': {
         this.props.history.push('/department');
         break;
+      }
+      case 'cloud': {
+        this.props.history.push('/leave')
       }
     }
     

@@ -3,7 +3,7 @@ const router = new Router();
 
 const {getAllAttendance,addNewAttendance} = require('../databaseConnection/attendance');
 
-router.get('/getAllLeave', async (ctx, next) => {
+router.get('/getAll', async (ctx, next) => {
   await getAllAttendance().then(data => {
     ctx.body = JSON.stringify(data.recordset);
     next();

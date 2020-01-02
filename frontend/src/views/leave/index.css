@@ -1,0 +1,14 @@
+.extra-content {
+  transform: scale(1.5);
+  margin: 3rem 5rem;
+}
+.leave-list-body {
+  margin-right: 1rem;
+  padding: 1rem 2rem;
+  border: 2px dashed palevioletred;
+  border-radius: 5px;
+}
+.leave-list-title {
+  font-size: 3rem;
+  line-height: 5rem;
+}

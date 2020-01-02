@@ -1,21 +1,24 @@
-import * as React from 'react';
-
-import {Icon, Card, Avatar} from 'antd';
-const {Meta} = Card;
-
 import '../style/departManage.css';
 
-export interface IDepartmentProps {
+import { Avatar, Card, Icon } from 'antd';
+import * as React from 'react';
+
+const {Meta} = Card;
+
+export interface IProps {
   name: string,
   description: string,
   avatarSrc?: string
 }
 
-const actionsMenu = [
-  
-]
+export interface  IDepartment {
+  Id: number,
+  Name: string,
+  WorkingHoursAM: Date,
+  WorkingHoursPm: Date
+}
 
-export default class Department extends React.Component<IDepartmentProps,{}> {
+export default class Department extends React.Component<IProps,{}> {
   
   render(){
     return (
