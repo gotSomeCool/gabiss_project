@@ -14,8 +14,8 @@ export interface IProps {
 export interface  IDepartment {
   Id: number,
   Name: string,
-  WorkingHoursAM: Date,
-  WorkingHoursPm: Date
+  WorkingHoursAM: string,
+  WorkingHoursPM: string
 }
 
 export default class Department extends React.Component<IProps,{}> {

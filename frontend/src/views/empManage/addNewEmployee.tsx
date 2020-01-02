@@ -69,7 +69,7 @@ export class AddNewOne extends React.Component <{}, IState> {
     })
     return (
       <div className="addNew">
-          <Card title="添加新员工" style={{width:'30vw'}}>
+        <Card title="添加新员工" style={{width:'30vw'}}>
           <Input size="large" placeholder="员工姓名" onChange={this.handleChange}/>
           <Divider type="horizontal" />
           <Select
