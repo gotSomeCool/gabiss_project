@@ -3,6 +3,7 @@ import * as React from 'react';
 import {Table, Divider, Tag, Button} from 'antd';
 
 import '../style/empManage.css';
+import {SERVER_IP} from '../../static/const';
 import Axios from 'axios';
 
 export interface ICount {
@@ -49,7 +50,7 @@ export class Attendance extends React.Component <{}, IState>{
     }
   }
   componentDidMount() {
-    Axios.get('http://127.0.0.1:3009/emp/getAll').then(res => {
+    Axios.get(`${SERVER_IP}/emp/getAll`).then(res => {
       // console.log(data);
       this.setState({
         data:res.data
