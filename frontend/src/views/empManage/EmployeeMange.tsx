@@ -49,10 +49,10 @@ export class Attendance extends React.Component <{}, IState>{
     }
   }
   componentDidMount() {
-    Axios.get('http://127.0.0.1:3009/emp/getAll').then(data => {
+    Axios.get('http://127.0.0.1:3009/emp/getAll').then(res => {
       // console.log(data);
       this.setState({
-        data:data.data
+        data:res.data
       });
     });
   }

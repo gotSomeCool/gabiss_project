@@ -10,7 +10,7 @@ function getAllEmployee () {
         resolve(result);
       }).catch(err => {
         reject(err);
-      })
+      });
     })
   })
 }
@@ -23,9 +23,23 @@ function addNewEmployee(gender,name,department){
         resolve(result);
       }).catch(err => {
         reject(err);
-      })
+      });
     })
   })
 }
 
-module.exports = {getAllEmployee, addNewEmployee};
+function removeEmployee(id){
+  return new Promise((resolve, reject) => {
+    poolConnect.then(pool => {
+      const request = pool.request();
+      id = Number.isInteger(id) ? id : Number(id); 
+      request.query(`delete from employee where Id=${id}`).then(result => {
+        resolve(result);
+      }).catch(err => {
+        reject(err);
+      });
+    })
+  })
+}
+
+module.exports = {getAllEmployee, addNewEmployee, removeEmployee};

@@ -33,7 +33,6 @@ export default class departmentManage extends React.Component <{}, IState>  {
             <Button type="primary" size="large" className="department-manage-button"> 修改部门 </Button>
           </div>
         </div>
-        
       </>
       
     )
