@@ -5,9 +5,9 @@
 .leave-list-body {
   margin-right: 1rem;
   padding: 1rem 2rem;
-  border: 2px dashed palevioletred;
+  /* border: 2px 0 0 0 dashed palevioletred; */
   border-radius: 5px;
-  width: 60%;
+  width: 80%;
 }
 .leave-list-title {
   font-size: 3rem;
@@ -15,4 +15,15 @@
 }
 .avatar-pic {
   transform: scale(1.5);
+  background: rgb(64, 121, 62);
+}
+.apply-leave-box {
+  width:100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-new-card {
+
 }

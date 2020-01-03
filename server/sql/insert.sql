@@ -1,15 +1,12 @@
 use ljw_db;
-go
-insert into leave (
-  DepartmentId,
-  Reason,
-  StartDate,
-  EndDate,
-  State
-) values (
-  2131231,
-  '这是一个原因',
-  '2019-07-01',
-  '2019-08-02',
-  '不会有人不知道吧'
+create table leave (
+  Id bigint not null primary key identity(0,1),
+  EmployeeId bigint not null,
+  EmployeeName nvarchar(20),
+  DepartmentId bigint not null,
+  DepartmentName nvarchar(20),
+  Reason nvarchar(256) default '',
+  StartDate date not null,
+  EndDate date not null,
+  State nvarchar(20)
 )

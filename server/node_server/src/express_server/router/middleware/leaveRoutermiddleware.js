@@ -12,12 +12,23 @@ router.get('/getAll', async (ctx, next) => {
 
 router.get('/addNew', async (ctx, next) => {
   const {
+    EmployeeId,
+    EmployeeName,
     DepartmentId,
+    DepartmentName,
     Reason,
     StartDate, 
-    EndDate
+    EndDate,
+    State
   } = ctx.request.query;
-  await addNewLeave(DepartmentId, Reason, StartDate, EndDate).then(data => {
+  await addNewLeave(EmployeeId,
+    EmployeeName,
+    DepartmentId,
+    DepartmentName,
+    Reason,
+    StartDate, 
+    EndDate,
+    State).then(data => {
     ctx.body = 'add success';
     next();
   }).catch(err => {

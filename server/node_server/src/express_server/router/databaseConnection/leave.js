@@ -14,11 +14,18 @@ function getAllLeaves(){
   })
 }
 
-function addNewLeave(DepartmentId, Reason, StartDate, EndDate){
+function addNewLeave(EmployeeId,
+  EmployeeName,
+  DepartmentId,
+  DepartmentName,
+  Reason,
+  StartDate, 
+  EndDate,
+  State){
   return new Promise((resolve, reject) => {
     poolConnect.then(pool => {
       const request = pool.request();
-      request.query(`insert into leave (DepartmentId,Reason,StartDate,EndDate) values ('${DepartmentId}','${Reason}','${StartDate}','${EndDate}')`)
+      request.query(`insert into leave (EmployeeId,EmployeeName,DepartmentId,DepartmentName,Reason,StartDate,EndDate,State) values ('${EmployeeId}','${EmployeeName}','${DepartmentId}','${DepartmentName}','${Reason}','${StartDate}','${EndDate}','${State}')`)
         .then(result => {
           resolve(result);
         }).catch(err => {
