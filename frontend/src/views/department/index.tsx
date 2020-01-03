@@ -58,6 +58,7 @@ export default class departmentManage extends React.Component <{}, IState>  {
             Name={showDepartment.Name}
             WorkingHoursAM={showDepartment.WorkingHoursAM}
             WorkingHoursPM={showDepartment.WorkingHoursPM}
+            editable={false}
           />
         )
       })
@@ -76,7 +77,7 @@ export default class departmentManage extends React.Component <{}, IState>  {
         WorkingHoursPM={item.WorkingHoursPM} 
         key={item.Id}
         showDialog={this.showDepartmentDialog}
-        width="500px"
+        editable={true}
         />
       );
     })
@@ -90,6 +91,7 @@ export default class departmentManage extends React.Component <{}, IState>  {
           onCancel={this.showDepartmentDialog}
           okText="确认"
           cancelText="取消"
+          width="45vw"
         >
           <div className="department-dialog-body">
               {this.state.showDepartment}

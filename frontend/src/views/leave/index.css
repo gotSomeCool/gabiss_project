@@ -7,6 +7,7 @@
   padding: 1rem 2rem;
   border: 2px dashed palevioletred;
   border-radius: 5px;
+  width: 60%;
 }
 .leave-list-title {
   font-size: 3rem;

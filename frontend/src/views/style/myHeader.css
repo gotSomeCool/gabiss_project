@@ -9,6 +9,7 @@
   z-index: 10;
   line-height: 5rem;
   font-size: 2rem;
+  box-shadow: 5px 0 10px gray;
 }
 
 .headerBody {

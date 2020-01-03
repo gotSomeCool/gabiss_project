@@ -17,7 +17,7 @@ export interface  IDepartment {
   WorkingHoursPM: string,
 
   showDialog ?(event: React.MouseEvent, id? : string): void
-  width?: string
+  editable?: boolean
 }
 function getTime(date: Date) {
   const H = date.getHours();
@@ -39,21 +39,21 @@ export default class Department extends React.Component<IDepartment,{}> {
     Bus.emit('departmentUpdate');
   }
   render(){
-    const width = this.props.width ? this.props.width : "300px";
+    const width = this.props.editable ?  "350px" : "40vw";
     return (
       <Card
         className="flex-item"
-        style={{width}}
+        style={{width, marginTop:"10px"}}
         cover={
           <img 
           alt="背景图片"
           src={IMAGES[Number(this.props.Id) % IMAGES.length]}/>
         }
-        actions={[
+        actions={this.props.editable && [
           <Icon type="delete" key="delete" onClick={()=>this.handleDelete(this.props.Id)} />,
           <Icon type="ellipsis" key="ellipsis" onClick={(event) => {if(this.props.showDialog) this.props.showDialog(event,this.props.Id)}} />
         ]}
-        hoverable={true}
+        hoverable={this.props.editable}
       >
         <Meta 
            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}

@@ -69,13 +69,6 @@ export class AddNewOne extends React.Component <{}, IState> {
       departmentId: DepartmentId
     }}).then(() => {
       message.success('添加员工成功');
-      this.setState({
-        newEmployee:{
-          Gender: '',
-          Name: '',
-          DepartmentId: 0
-        }
-      });
       Bus.emit('empUpdate');
     });
   }
