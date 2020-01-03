@@ -27,5 +27,17 @@ function addNewDepartment(Name, WorkingHoursAM, WorkingHoursPM) {
     });
   });
 }
+function removeDepartment(id) {
+  return new Promise((resolve,reject) => {
+    poolConnect.then(pool => {
+      const request = pool.request();
+      request.query(`delete from department where Id = '${id}'`).then((result) => {
+        resolve(result);
+      }).catch(err => {
+        reject(err);
+      });
+    })
+  })
+}
 
-module.exports = {getAllDepartment, addNewDepartment};
+module.exports = {getAllDepartment, addNewDepartment, removeDepartment};

@@ -4,22 +4,26 @@
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
+  flex-wrap: wrap;
 }
 .flex-item {
   /* flex: 0; */
   display: inline-block;
   margin:0 20px;
+  min-width: 300px;
+  flex: 0;
 }
 .department-manage {
-  /* position: absolute; */
-  display: flex;
-  width: 100px;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  position: absolute;
+  right:5%;
+  top:-50px;
+  
 }
 .department-manage-button {
   box-shadow: 5px 5px 10px grey;
   margin: 0.8rem;
+}
+
+.department-dialog-body {
+  
 }

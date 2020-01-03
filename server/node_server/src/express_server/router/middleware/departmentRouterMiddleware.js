@@ -1,7 +1,7 @@
 const Router = require('koa-router');
 const router = new Router();
 
-const {getAllDepartment, addNewDepartment} = require('../databaseConnection/department');
+const {getAllDepartment, addNewDepartment, removeDepartment} = require('../databaseConnection/department');
 
 router.get('/getAll', async (ctx, next) => {
   await getAllDepartment().then(data => {
@@ -28,6 +28,21 @@ router.get('/addNew', async (ctx, next) => {
   });
 });
 
+router.get('/remove', async (ctx, next) => {
+  const {
+    id
+  } = ctx.request.query;
+  await removeDepartment(id).then(result => {
+    ctx.body = 'remove success';
+    next();
+  }).catch(err => {
+    ctx.body = {
+      error: JSON.stringify(err),
+      code: 500
+    };
+    next();
+  });
+})
 
 
 module.exports = router.routes();

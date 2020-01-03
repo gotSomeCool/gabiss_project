@@ -2,26 +2,32 @@ import '../style/empManage.css';
 
 import { Button, Divider, message, Modal, Table } from 'antd';
 import Axios from 'axios';
+import { EventEmitter } from 'events';
 import * as React from 'react';
 
 import { SERVER_IP } from '../../static/const';
+import Bus from '../../static/eventBus';
+import { IDepartment } from '../department/department';
 
 export interface IEmployee {
   Id: string;
   Name: string;
   Gender: string;
-  DepartmentId:number;
+  DepartmentId: string;
 }
 
 interface IState {
   data: IEmployee[];
+  departments: IDepartment[];
 }
 
 export class Attendance extends React.Component <{}, IState>{
+  private updateEvent: EventEmitter;
   constructor(props:{}){
     super(props);
     this.state = {
-      data : []
+      data: [],
+      departments: []
     }
   }
   getAllData() {
@@ -34,10 +40,24 @@ export class Attendance extends React.Component <{}, IState>{
       }).catch((err) => {
         reject(err);
       });
+      Axios.get(`${SERVER_IP}/department/getAll`).then(res => {
+        this.setState({
+          departments: res.data
+        });
+        resolve();
+      }).catch(err => {
+        reject(err);
+      })
     })
   }
   componentDidMount() {
     this.getAllData();
+    this.updateEvent = Bus.addListener('empUpdate',()=>{
+      this.getAllData();
+    });
+  }
+  componentWillUnmount() {
+    this.updateEvent.removeAllListeners('empUpdate');
   }
   handleDelete(record: any) {
     Axios.get(`${SERVER_IP}/emp/remove`,{params:{
@@ -61,23 +81,27 @@ export class Attendance extends React.Component <{}, IState>{
         key: 'Gender'
       },{
         title: '部门',
-        dataIndex: 'DepartmentId',
-        key: 'DepartmentId'
+        dataIndex: 'DepartmentName',
+        key: 'DepartmentName'
       },{
         title: 'Action',
         key: 'action',
         render:(record:any) => (
           <>
-            <Button type="primary">干点啥</Button>
+            <Button type="primary"> 管理 </Button>
             <Divider type="vertical" />
             <Button type="danger" onClick={() => this.handleDelete(record)}>删除</Button>
           </>
         )
       }
     ]
+    const emps = this.state.data.map((item) => {
+      const Found = this.state.departments.find(ele => ele.Id === item.DepartmentId);
+      return Object.assign({}, item, {DepartmentName: Found ? Found.Name : ''});
+    });
     return (
         <Table 
-          dataSource={this.state.data} 
+          dataSource={emps} 
           columns={columns} 
           rowKey={record=>record.Id} 
           className="empTable" 
