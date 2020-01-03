@@ -64,10 +64,10 @@ export default class LeaveList extends React.Component <{}, IState> {
           }
           >
             <List.Item.Meta
-              avatar={<Avatar src="./static/6.jpg" />}
+              avatar={<Avatar src="./static/6.jpg" className="avatar-pic" />}
               title = {item.DepartmentId}
-              description = {<h3>{item.Reason}</h3>} />
-            <h2 >{getDate(new Date(item.StartDate))} - {getDate(new Date(item.EndDate))}</h2>
+              description = {<h3>{getDate(new Date(item.StartDate))} - {getDate(new Date(item.EndDate))}</h3>} />
+            <h2 >{item.Reason}</h2>
           </List.Item>
         )}
       >

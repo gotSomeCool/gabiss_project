@@ -1,6 +1,6 @@
 .extra-content {
   transform: scale(1.5);
-  margin: 3rem 5rem;
+  margin: 3rem;
 }
 .leave-list-body {
   margin-right: 1rem;
@@ -12,4 +12,7 @@
 .leave-list-title {
   font-size: 3rem;
   line-height: 5rem;
+}
+.avatar-pic {
+  transform: scale(1.5);
 }
