@@ -13,11 +13,15 @@ function getAllAttendance(){
     });
   });
 }
-function addNewAttendance(EmployeeID,NotAttendanceDate){
+function addNewAttendance(EmployeeId,
+  EmployeeName,
+  DepartmentId,
+  AttendDate,
+  State){
   return new Promise((resolve, reject) => {
     poolConnect.then(pool => {
       const request = pool.request();
-      request.query(`insert into attendance (EmployeeID,NotAttendanceDate) values ('${EmployeeID}','${NotAttendanceDate}')`)
+      request.query(`insert into attendance (EmployeeId,EmployeeName,DepartmentId,AttendDate,State) values ('${EmployeeId}','${EmployeeName}','${DepartmentId}','${AttendDate}','${State}')`)
         .then(result=>{
           resolve(result);
         }).catch(err => {

@@ -1,6 +1,7 @@
-import * as React from 'react';
-import {Avatar} from 'antd';
 import './style/myHeader.css';
+
+import { Avatar } from 'antd';
+import * as React from 'react';
 
 export default class Header extends React.Component {
   render(){
@@ -8,7 +9,7 @@ export default class Header extends React.Component {
       <div className="myHeader">
         <div className="headerBody">
           <span className="title">
-          GA没🐎，🌶4真滴🐂🍺
+          ☀，公司考勤管理系统 🐂🍺
           </span>
           <div className="headerAvatar">
           {/* <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={64} /> */}

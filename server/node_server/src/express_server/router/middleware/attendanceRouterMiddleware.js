@@ -12,10 +12,17 @@ router.get('/getAll', async (ctx, next) => {
 
 router.get('/addNew', async (ctx, next) => {
   const {
-    EmployeeID,
-    NotAttendanceDate
+    EmployeeId,
+    EmployeeName,
+    DepartmentId,
+    AttendDate,
+    State
   } = ctx.request.query;
-  await addNewAttendance(EmployeeID, NotAttendanceDate).then(data => {
+  await addNewAttendance(EmployeeId,
+    EmployeeName,
+    DepartmentId,
+    AttendDate,
+    State).then(data => {
     ctx.body = 'add success';
     next();
   }).catch(err => {

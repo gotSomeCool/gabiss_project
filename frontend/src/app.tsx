@@ -1,14 +1,15 @@
-import * as React from 'react';
-
-import {Route} from 'react-router-dom';
-
 import './app.css';
 
-import SidePane from './views/sidePane';
-import EmpManage from './views/empManage/index';
+import * as React from 'react';
+import { Route } from 'react-router-dom';
+
+import Attendance from './views/attendance/index';
 import DepManage from './views/department/index';
+import EmpManage from './views/empManage/index';
 import LeaManage from './views/leave/index';
 import MyHeader from './views/myHeader';
+import SidePane from './views/sidePane';
+
 export default class App extends React.Component {
   render() {
     return (
@@ -20,6 +21,7 @@ export default class App extends React.Component {
             <Route path='/employee' component={EmpManage} />
             <Route path='/department' component={DepManage} />
             <Route path='/leave' component={LeaManage} />
+            <Route path="/attendance" component={Attendance} />
           </div>
         </div>
       </div>

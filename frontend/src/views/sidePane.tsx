@@ -1,11 +1,10 @@
-import * as React from 'react';
-
-import {Menu, Icon} from 'antd';
-import { ClickParam } from 'antd/lib/menu';
-// const {SubMenu} = Menu;
-import {withRouter, RouteComponentProps} from 'react-router-dom';
-
 import './style/sidePane.css';
+
+import { Icon, Menu } from 'antd';
+import { ClickParam } from 'antd/lib/menu';
+import * as React from 'react';
+// const {SubMenu} = Menu;
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 interface IProps extends RouteComponentProps{
 
@@ -38,7 +37,12 @@ class Header extends React.Component <IProps, IState>{
         break;
       }
       case 'cloud': {
-        this.props.history.push('/leave')
+        this.props.history.push('/leave');
+        break;
+      }
+      case 'filter': {
+        this.props.history.push('/attendance');
+        break;
       }
     }
     
