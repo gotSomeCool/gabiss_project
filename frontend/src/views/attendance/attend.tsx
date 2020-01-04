@@ -3,6 +3,7 @@ import Axios from 'axios';
 import * as React from 'react';
 
 import { SERVER_IP } from '../../static/const';
+import Bus from '../../static/eventBus';
 import getDate from '../../static/getDate';
 import { IDepartment } from '../department/department';
 import { IEmployee } from '../empManage/EmployeeMange';
@@ -47,6 +48,7 @@ export default class Attend extends React.Component <{}, IState>{
       AttendDate: new Date(),
       State: state ? 'onTime': 'late'
     }}).then(() => {
+      Bus.emit('attendUpdate');
       if(state) {
         message.success('准时打卡👍');
       }else {

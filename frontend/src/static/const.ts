@@ -24,4 +24,14 @@ export const IMAGES = ['./static/2.jpg',
 './static/71685071_p0.jpg',
 './static/71820780_p0.jpg',
 './static/72228200_p0.png',
-'./static/cnm.jpg']
+'./static/cnm.jpg'];
+
+export const USER_NAME = ['李嘉伟',
+  '刘奇',
+  '古力娜扎',
+  '迪丽热巴',
+  '玛而扎哈',
+  '谢磊',
+  '曾宪林'
+]
+export const PASS_WORD = ['123456','abc123','abc'];

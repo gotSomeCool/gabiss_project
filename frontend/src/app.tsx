@@ -7,6 +7,7 @@ import Attendance from './views/attendance/index';
 import DepManage from './views/department/index';
 import EmpManage from './views/empManage/index';
 import LeaManage from './views/leave/index';
+import Login from './views/login/index';
 import MyHeader from './views/myHeader';
 import SidePane from './views/sidePane';
 
@@ -22,6 +23,7 @@ export default class App extends React.Component {
             <Route path='/department' component={DepManage} />
             <Route path='/leave' component={LeaManage} />
             <Route path="/attendance" component={Attendance} />
+            <Route path="/login" component={Login} />
           </div>
         </div>
       </div>
