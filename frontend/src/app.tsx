@@ -23,7 +23,7 @@ export default class App extends React.Component {
             <Route path='/department' component={DepManage} />
             <Route path='/leave' component={LeaManage} />
             <Route path="/attendance" component={Attendance} />
-            <Route path="/" component={Login} />
+            <Route path="/login" component={Login} />
           </div>
         </div>
       </div>
